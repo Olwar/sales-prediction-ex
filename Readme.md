@@ -12,10 +12,10 @@ Feature Engineering was done for the LSTM and Prophet. Lagged sales from 1 to 5 
 
 ### Model Selection:
 There are many models that can be used for Time-Series forecasting. These include Linear Regression, ARIMA, Random Forest, XGBoost,
-LSTM, DeepAR and Prophet. In this project all of these were tried except DeepAR. LSTM, Prophet and ARIMA were fine-tuned further. After fine-tuning and feature engineering ARIMA turned out to be the most accurate of these.
-Prophet: 55.80 MAE (and odd looking prediction)
-LSTM: 39.28 MAE 
-ARIMA: 23.56 MAE 
+LSTM, DeepAR and Prophet. In this project all of these were tried except DeepAR. LSTM, Prophet and ARIMA were fine-tuned further. After fine-tuning and feature engineering ARIMA turned out to be the most accurate of these.  
+Prophet: 55.80 MAE (and odd looking prediction)  
+LSTM: 39.28 MAE  
+ARIMA: 23.56 MAE  
 
 ### Evaluation:
 For evaluation Mean Absolute Error (MAE) was used.
