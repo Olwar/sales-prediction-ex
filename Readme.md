@@ -8,12 +8,12 @@ The data is day-to-day total sales of ABCD's items from 21.08.2022 to 01.11.2023
 No pre-processing steps were needed for the data, it didn't include any missing or outlier values.  
 
 ### Feature Engineering:  
-Feature Engineering was done for the LSTM and Prophet. Lagged sales from 1 to 5 days were added and rolling mean of 5, 10, 15 and 20 days' sales were added. It did not improve performance.  
+Feature Engineering was done for the LSTM and Prophet. Lagged sales from 1 to 5 days were added and rolling mean of 5, 10, 15 and 20 days' sales were added. Adding Features did improve Prophet's performance in the test but it couldn't predict into the future.
 
 ### Model Selection:
 There are many models that can be used for Time-Series forecasting. These include Linear Regression, ARIMA, Random Forest, XGBoost,
-LSTM, DeepAR and Prophet. In this project all of these were tried except DeepAR. LSTM, Prophet and ARIMA were fine-tuned further. After fine-tuning and feature engineering ARIMA turned out to be the most accurate of these.  
-Prophet: 55.80 MAE (and odd looking prediction)  
+LSTM, DeepAR and Prophet. In this project all of these were tried except DeepAR. LSTM, Prophet and ARIMA were fine-tuned further. LSTM would need more data. After fine-tuning and feature engineering ARIMA turned out to be the most accurate of these.  
+Prophet: 55.80 MAE (and odd looking prediction) or 23.71 with feature engineering  
 LSTM: 39.28 MAE  
 ARIMA: 23.56 MAE  
 
