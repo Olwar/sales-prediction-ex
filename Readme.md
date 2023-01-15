@@ -21,7 +21,9 @@ ARIMA: 23.56 MAE
 For evaluation Mean Absolute Error (MAE) was used.
 
 ### Results:
-The MAE of the ARIMA model was 23.56, this means the model's prediction from the actual sales in the test set was off by 23.56 points on average. The model also gives a 95% confidence interval of the predictions. This means that there's a 95% chance the true value lies between these intervals.
+The MAE of the ARIMA model was 23.56, this means the model's prediction from the actual sales in the test set was off by 23.56 points on average. The model also gives a 95% confidence interval of the predictions. This means that there's a 95% chance the true value lies between these intervals.  
+
+![Predictions](best_model_lineplot.png)
 
 ### Deployment:
 An API endpoint could be created that takes input data and returns the model's prediction.
