@@ -8,13 +8,14 @@ When developing machine learning models, it is important to document the process
     No pre-processing steps were needed for the data, it didn't include any missing or outlier values.
 
     Feature Engineering: Describe any feature engineering that was done, including the features that were created and the reasoning behind their creation.
-
+    Feature Engineering was done for the LSTM and Prophet. Lagged sales from 1 to 5 days were added and rolling mean of 5, 10, 15 and 20 days' sales were added. I did not improve performance.
 
     Model Selection: Record the models that were tried and their performance, including the model's architecture, hyperparameters and any other relevant details.
     There are many models that can be used for Time-Series forecasting. These include Linear Regression, ARIMA, Random Forest, XGBoost,
-    LSTM, DeepAR and Prophet. In this project all of these were tried except DeepAR. After initial testing without fine-tuning, ARIMA turned out to be the most accurate of these.
+    LSTM, DeepAR and Prophet. In this project all of these were tried except DeepAR. After fine-tuning and feature engineering ARIMA turned out to be the most accurate of these.
     Prophet: 55.80 MAE (and weird prediction)
-    ARIMA: 23.557 MAE
+    ARIMA: 23.56 MAE
+    LSTM: 39.28 MAE  
 
     Evaluation: Document the evaluation metrics that were used to evaluate the model's performance. This could include metrics such as accuracy, precision, recall, F1-score and MAE among others.
     For evaluation Mean Absolute Error (MAE) was used.
@@ -24,7 +25,7 @@ When developing machine learning models, it is important to document the process
 
 
     Deployment: Describe how the model will be deployed and used in production, including any considerations for scaling, monitoring, and maintenance.
-    The model is qu
+    Once the model is deployed, it is important to monitor its performance. This can be done by tracking key performance indicators such as mean absolute error (MAE to ensure that the model is performing as expected.
 
 
     Code: Keep the code organized and well-documented, with clear explanations of the functions, variables and methods.
