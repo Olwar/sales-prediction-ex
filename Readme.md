@@ -8,20 +8,20 @@ The data is day-to-day total sales of ABCD's items from 21.08.2022 to 01.11.2023
 No pre-processing steps were needed for the data, it didn't include any missing or outlier values.  
 
 ### Feature Engineering:  
-Manual feature engineering was done for the LSTM and Prophet. Lagged sales from 1 to 5 days were added and rolling mean of 5, 10, 15 and 20 days' sales were added. Adding Features did improve Prophet's performance. ARIMA has built-in feature engineering for moving average, lagged features and degree of differencing. The selected parameters for this are explain in the Results section.
+Manual feature engineering was done for the LSTM and Prophet. Lagged sales from 1 to 5 days were added and rolling mean of 5, 10, 15 and 20 days' sales were added. Adding Features did improve Prophet's performance. ARIMA has built-in feature engineering for moving average, lagged features and degree of differencing. The optimal values for these were found with grid search and they were (40, 2, 2) meaning there was 40 lagged observations in the model, degree of differencing was 2 and the moving average windows was 2.
 
 ### Model Selection:
 There are many models that can be used for Time-Series forecasting. These include Linear Regression, ARIMA, Random Forest, XGBoost,
-LSTM, DeepAR and Prophet. In this project all of these were tried except DeepAR. LSTM, Prophet and ARIMA were fine-tuned further. LSTM would need more data. After fine-tuning and feature engineering ARIMA turned out to be the most accurate of these.  
+LSTM, DeepAR and Prophet. In this project all of these were tried except DeepAR. LSTM, Prophet and ARIMA were fine-tuned further. LSTM would need more data. After fine-tuning and feature engineering ARIMA turned out to be the most accurate of these. The ARIMA was fine-tuned using grid search. It significantly improved performance.
 Prophet: 55.80 MAE (and odd looking prediction) without feature engineering or 23.71 with feature engineering  
 LSTM: 39.28 MAE  
-ARIMA: 23.56 MAE  
+ARIMA: 21.93 MAE  
 
 ### Evaluation:
-For evaluation Mean Absolute Error (MAE) was used.
+For evaluation Mean Absolute Error (MAE) was used. It is calculated as the average of the absolute differences between the predicted and actual values. In other words, it measures the average magnitude of the errors in a set of predictions, without considering their direction. The lower the MAE, the better the model's performance.
 
 ### Results:
-The MAE of the ARIMA model was 23.56, this means the model's prediction from the actual sales in the test set was off by 23.56 points on average. The model also gives a 95% confidence interval of the predictions. This means that there's a 95% chance the true value lies between these intervals. The best parameters for ARIMA were (40, 2, 2) meaning there was 40 lagged observations in the model, degree of differencing was 2 and the moving average windows was 2.
+The Mean Absolute Error (MAE) of the ARIMA model was 21.93, this means the model's prediction from the actual sales in the test set was off by 21.93 points on average. The model also gives a 95% confidence interval of the predictions. This means that there's a 95% chance the true value lies between these intervals. As you can see in the plot, the interval gets bigger as the predicted timeframe gets longer.
 
 ![Predictions](best_model_lineplot.png)
 
