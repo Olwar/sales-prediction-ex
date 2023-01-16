@@ -8,7 +8,7 @@ The data is day-to-day total sales of ABCD's items from 21.08.2022 to 01.11.2023
 No pre-processing steps were needed for the data, it didn't include any missing or outlier values.  
 
 ### Feature Engineering:  
-Feature Engineering was done for the LSTM and Prophet. Lagged sales from 1 to 5 days were added and rolling mean of 5, 10, 15 and 20 days' sales were added. Adding Features did improve Prophet's performance in the test but it couldn't predict into the future.
+Manual feature engineering was done for the LSTM and Prophet. Lagged sales from 1 to 5 days were added and rolling mean of 5, 10, 15 and 20 days' sales were added. Adding Features did improve Prophet's performance. ARIMA has built-in feature engineering for moving average, lagged features and degree of differencing. The selected parameters for this are explain in the Results section.
 
 ### Model Selection:
 There are many models that can be used for Time-Series forecasting. These include Linear Regression, ARIMA, Random Forest, XGBoost,
@@ -21,7 +21,7 @@ ARIMA: 23.56 MAE
 For evaluation Mean Absolute Error (MAE) was used.
 
 ### Results:
-The MAE of the ARIMA model was 23.56, this means the model's prediction from the actual sales in the test set was off by 23.56 points on average. The model also gives a 95% confidence interval of the predictions. This means that there's a 95% chance the true value lies between these intervals.  
+The MAE of the ARIMA model was 23.56, this means the model's prediction from the actual sales in the test set was off by 23.56 points on average. The model also gives a 95% confidence interval of the predictions. This means that there's a 95% chance the true value lies between these intervals. The best parameters for ARIMA were (40, 2, 2) meaning there was 40 lagged observations in the model, degree of differencing was 2 and the moving average windows was 2.
 
 ![Predictions](best_model_lineplot.png)
 
